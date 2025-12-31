@@ -1,0 +1,234 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #fbc2eb,
+    #a6c1ee,
+    #ffdde1,
+    #c2e9fb
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* Card */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15),
+          inset 0 0 30px rgba(255,255,255,0.4);
+  animation: fadeIn 1.2s ease;
+}
+
+
+/* Headings */
+h1 {
+  color: #ff4d6d;
+  margin-bottom: 10px;
+}
+
+/* Letter text */
+.letter {
+  font-size: 15.5px;
+  margin: 18px 0;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Button */
+button {
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+}
+
+/* Hidden message */
+.hidden {
+  display: none;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #ff4d6d;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gallery & Back Buttons */
+.gallery-btn,
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-btn:hover,
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+}
+
+/* Gallery Grid */
+.gallery {
+  column-count: 2;
+  column-gap: 14px;
+  margin: 25px 0;
+}
+
+
+/* Gallery Images */
+.gallery img {
+  width: 100%;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  display: block;
+  break-inside: avoid;
+  cursor: pointer;
+   transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+.gallery img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+@media (max-width: 480px) {
+  .gallery {
+    column-count: 1;
+  }
+}
+
+/* Music Player */
+.volume-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  color: #ff4d6d;
+}
+
+.volume-control input {
+  width: 120px;
+}
+
+.music-controls button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ff4d6d;
+  margin: 0 5px;
+}
+
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Romantic Lightbox Overlay */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 182, 193, 0.25),
+    rgba(0, 0, 0, 0.85)
+  );
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: lightboxFade 0.4s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* Image inside lightbox */
+#lightbox img {
+  max-width: 88%;
+  max-height: 82%;
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 rgba(255, 77, 109, 0),
+    0 30px 70px rgba(255, 77, 109, 0.55);
+  animation:
+    romanticZoom 0.5s ease,
+    heartBeat 2.5s ease-in-out infinite;
+}
+
+/* Fade background */
+@keyframes lightboxFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Smooth zoom-in */
+@keyframes romanticZoom {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Gentle heartbeat pulse */
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
